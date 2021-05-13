@@ -20,7 +20,7 @@ pipeline {
             //sh 'scp index.html akash@192.168.0.101:/var/www/html'
             //}
         //}
-       stages('Remote SSH') {
+      stage('Remote SSH') {
            steps {
         sshPut remote: remote, from: 'index.html', into: '/var/www/html'
          }
