@@ -1,3 +1,8 @@
+    def remote = [:]
+    remote.name = 'akash'
+    remote.host = '192.168.0.101'
+    remote.user = 'akash'
+    remote.password = 'akash'
 pipeline {
     agent any
 
@@ -8,11 +13,16 @@ pipeline {
                 git branch: 'main', credentialsId: '4af18a21-3317-4da0-85bc-1fbffb60821b', url: 'https://github.com/akashmukh/Jenkins.git'
             }
         }
-        stage('Deployment'){
-            steps {
+        //stage('Deployment'){
+            //steps {
                 // move the new changed 
-            sh 'scp index.html akash@192.168.0.101:/var/www/html'
-            }
-        }
+            //sh 'scp index.html akash@192.168.0.101:/var/www/html'
+            //}
+        //}
+       stage('Remote SSH') {
+           steps {
+        sshPut remote: remote, from: 'index.html', into: '/var/www/html'
+         }
+       }
     }
 }
