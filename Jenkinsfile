@@ -11,8 +11,8 @@ pipeline {
         stage('Deployment'){
             steps {
                 // move the new changed 
-            sh 'mv index.html /var/www/html'
+            sh 'rsync -av index.html akash@192.168.0.101:/var/www/html'
             }
         }
-    }
+     }
 }
