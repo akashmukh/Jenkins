@@ -31,7 +31,7 @@ pipeline {
              sshPut remote: remote, from: "index.html", into: "/var/www/html"
              sshPut remote: remote, from: "test.sh", into: "/tmp"
              sshCommand remote: remote, command: "ls /var/www/html && chmod +x /tmp/test.sh"
-             sshScript remote: remote, script: '/tmp/test.sh'
+             sshScript remote: remote, script: 'test.sh'
              }
             }
             }
