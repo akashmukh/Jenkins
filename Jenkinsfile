@@ -1,3 +1,11 @@
+def remote = [:]
+remote.name = 'test'
+remote.host = '18.209.87.84'
+remote.port = 22
+remote.allowAnyHosts = true
+remote.user = akash
+remote.password = akash
+
 pipeline {
     agent any
 
@@ -11,9 +19,11 @@ pipeline {
      stage('Deployment'){
         steps {
              // move the new changed 
-             sh 'whoami'
-             sh 'pwd && ls /var/lib/jenkins'
-             sh 'sudo scp -v -i /var/lib/jenkins/training.pem index.html ubuntu@18.209.87.84:/var/www/html'
+             sh 'ls'
+             //sh 'scp index.html ubuntu@18.209.87.84:/var/www/html'
+             
+             sshPut remote: remote, from: "index.html", into: "/var/www/html"
+             sshCommand remote: remote, command: "ls /var/www/html"
             }
         }
     }
