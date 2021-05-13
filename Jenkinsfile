@@ -3,8 +3,8 @@ remote.name = 'test'
 remote.host = '18.209.87.84'
 remote.port = 22
 remote.allowAnyHosts = true
-remote.user = akash
-remote.password = akash
+remote.user = "akash"
+remote.password = "akash"
 
 pipeline {
     agent any
