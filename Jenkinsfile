@@ -17,6 +17,7 @@ pipeline {
         }
      stage('Deployment'){
         steps {
+            script {
              // move the new changed 
              sh 'ls'
              //sh 'scp index.html ubuntu@18.209.87.84:/var/www/html'
@@ -26,6 +27,7 @@ pipeline {
              sshPut remote: remote, from: "index.html", into: "/var/www/html"
              sshCommand remote: remote, command: "ls /var/www/html"
              }
+            }
             }
         }
     }
