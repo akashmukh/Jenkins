@@ -13,7 +13,7 @@ pipeline {
              // move the new changed 
              sh 'whoami'
              sh 'pwd && ls /var/lib/jenkins'
-             sh 'scp -v -i /var/lib/jenkins/training.pem index.html ubuntu@18.209.87.84:/var/www/html'
+             sh 'sudo scp -v -i /var/lib/jenkins/training.pem index.html ubuntu@18.209.87.84:/var/www/html'
             }
         }
     }
