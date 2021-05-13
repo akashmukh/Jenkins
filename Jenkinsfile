@@ -20,7 +20,7 @@ pipeline {
              // move the new changed 
              sh 'ls'
              //sh 'scp index.html ubuntu@18.209.87.84:/var/www/html'
-             withCredentials([usernamePassword(credentialsId: 'ubuntu-ec2 - Creds', passwordVariable: 'pass', usernameVariable: 'user')]) {
+             withCredentials([usernamePassword(credentialsId: 'ubuntu-ec2', passwordVariable: 'pass', usernameVariable: 'user')]) {
              remote.user = user
              remote.password = pass
              sshPut remote: remote, from: "index.html", into: "/var/www/html"
