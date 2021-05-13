@@ -14,5 +14,5 @@ pipeline {
             sh 'rsync -av index.html akash@192.168.0.101:/var/www/html'
             }
         }
-     }
+    }
 }
