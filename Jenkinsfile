@@ -11,6 +11,7 @@ pipeline {
      stage('Deployment'){
         steps {
              // move the new changed 
+             sh 'whoami'
              sh 'scp index.html akash@192.168.0.101:/var/www/html'
             }
         }
