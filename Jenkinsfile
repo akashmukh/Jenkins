@@ -8,6 +8,10 @@ pipeline {
                 git branch: 'main', credentialsId: '4af18a21-3317-4da0-85bc-1fbffb60821b', url: 'https://github.com/akashmukh/Jenkins.git'
             }
         }
+        stage('SSH login')
+         steps {
+             //ssh login
+             sh 'ssh akash@192.168.0.101'
         stage('Deployment'){
             steps {
                 // move the new changed 
