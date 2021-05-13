@@ -1,9 +1,3 @@
-def remote = [:]
-    remote.name = 'akash'
-    remote.host = '192.168.0.101'
-    remote.user = 'akash'
-    remote.password = 'akash'
-    remote.allowAnyHosts = true
 pipeline {
     agent any
 
