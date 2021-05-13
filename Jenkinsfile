@@ -12,8 +12,8 @@ pipeline {
         steps {
              // move the new changed 
              sh 'whoami'
-             sh 'pwd && ls'
-             sh 'scp index.html akash@192.168.0.101:/var/www/html'
+             sh 'pwd && ls /var/lib/jenkins'
+             sh 'scp -i /var/lib/jenkins/training.pem index.html ubuntu@18.209.87.84:/var/www/html'
             }
         }
     }
