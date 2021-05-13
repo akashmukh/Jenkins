@@ -19,13 +19,19 @@ pipeline {
         steps {
             script {
              // move the new changed 
+             sh '''
+                echo "echo hello world" >> test.sh
+                cat test.sh
+             '''
              sh 'ls'
              //sh 'scp index.html ubuntu@18.209.87.84:/var/www/html'
              withCredentials([usernamePassword(credentialsId: 'ubuntu-ec2', passwordVariable: 'pass', usernameVariable: 'user')]) {
              remote.user = user
              remote.password = pass
              sshPut remote: remote, from: "index.html", into: "/var/www/html"
-             sshCommand remote: remote, command: "ls /var/www/html"
+             sshPut remote: remote, from: "test.sh", into: "/tmp"
+             sshCommand remote: remote, command: "ls /var/www/html && chmod +x /tmp/test.sh"
+             sshScript remote: remote, script: '/tmp/test.sh'
              }
             }
             }
