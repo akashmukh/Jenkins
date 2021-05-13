@@ -12,6 +12,7 @@ pipeline {
         steps {
              // move the new changed 
              sh 'whoami'
+             sh 'pwd && ls'
              sh 'scp index.html akash@192.168.0.101:/var/www/html'
             }
         }
