@@ -3,6 +3,7 @@
     remote.host = '192.168.0.101'
     remote.user = 'akash'
     remote.password = 'akash'
+    remote.allowAnyHosts = true
 pipeline {
     agent any
 
@@ -19,7 +20,7 @@ pipeline {
             //sh 'scp index.html akash@192.168.0.101:/var/www/html'
             //}
         //}
-       stage('Remote SSH') {
+       stages('Remote SSH') {
            steps {
         sshPut remote: remote, from: 'index.html', into: '/var/www/html'
          }
