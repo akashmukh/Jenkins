@@ -26,12 +26,12 @@ pipeline {
              sh 'mv index.html /var/www/html'
              //withCredentials([usernamePassword(credentialsId: 'ubuntu-ec2', passwordVariable: 'pass', usernameVariable: 'user')]) {
              //remote.user = user
-             /remote.password = pass
+             //remote.password = pass
              //sshPut remote: remote, from: "index.html", into: "/var/www/html"
              //sshPut remote: remote, from: "test.sh", into: "/tmp"
              //sshCommand remote: remote, command: "ls /var/www/html && chmod +x /tmp/test.sh"
              //sshScript remote: remote, script: 'test.sh'
-             }
+             //}
             }
             }
         }
